@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {Person} from "../models/person";
-import {HttpClient} from "@angular/common/http";
-import {DatastoreService} from "./datastore.service";
+import {BehaviorSubject} from 'rxjs';
+import {Person} from '../models/person';
+import {HttpClient} from '@angular/common/http';
+import {DatastoreService} from './datastore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +17,12 @@ export class StarwarsApiPeopleService {
 
   constructor(private http: HttpClient, private datastoreService: DatastoreService) { }
 
-  loadPeople(target: string = 'https://swapi.co/api/people/') {
-    if(this.peopleLoaded === false && this.peopleInProgress === false) {
+  loadPeople(target: string = 'https://swapi.dev/api/people/') {
+    if (this.peopleLoaded === false && this.peopleInProgress === false) {
       this.http.get(target).subscribe(data => {
-        for (let i in (data as any).results) {
-          let person: Person = new Person((data as any).results[i]);
-          this.datastoreService.setPerson(person)
+        for (const i in (data as any).results) {
+          const person: Person = new Person((data as any).results[i]);
+          this.datastoreService.setPerson(person);
         }
         this._people.next(Object.assign({}, this.datastoreService.getPersonStore()).people);
         if ((data as any).next) {
@@ -31,7 +31,7 @@ export class StarwarsApiPeopleService {
           this.peopleLoaded = true;
           this.peopleInProgress = false;
         }
-      })
+      });
     }
   }
 

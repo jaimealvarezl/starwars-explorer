@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Planet} from "../../models/planet";
-import {DialogService} from "../../services/dialog.service";
+import {Planet} from '../../models/planet';
+import {DialogService} from '../../services/dialog.service';
 
 @Component({
   selector: 'app-planet-card',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Planet} from "../models/planet";
-import {Movie} from "../models/movie";
-import {Person} from "../models/person";
+import {Planet} from '../models/planet';
+import {Movie} from '../models/movie';
+import {Person} from '../models/person';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class DatastoreService {
 
   constructor() { }
 
-  public setPlanet(planet :Planet) {
+  public setPlanet(planet: Planet) {
     this.planetDataStore.planets.push(planet);
   }
 
@@ -22,7 +22,7 @@ export class DatastoreService {
     return this.planetDataStore;
   }
 
-  public setPerson(person :Person) {
+  public setPerson(person: Person) {
     this.peopleDataStore.people.push(person);
   }
 
@@ -30,7 +30,7 @@ export class DatastoreService {
     return this.peopleDataStore;
   }
 
-  public setMovie(movie :Movie) {
+  public setMovie(movie: Movie) {
     this.movieDataStore.movies.push(movie);
   }
 

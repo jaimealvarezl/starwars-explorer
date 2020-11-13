@@ -1,11 +1,12 @@
 import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {Person} from "../../models/person";
-import {StarwarsApiPlanetsService} from "../../services/starwars-api-planets.service";
-import {Planet} from "../../models/planet";
-import {DialogService} from "../../services/dialog.service";
-import {StarwarsApiMoviesService} from "../../services/starwars-api-movies.service";
-import {Movie} from "../../models/movie";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Person} from '../../models/person';
+import {Planet} from '../../models/planet';
+import {DialogService} from '../../services/dialog.service';
+import {Movie} from '../../models/movie';
+import {HttpClient} from '@angular/common/http';
+import {combineLatest, of} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-person-dialog',
@@ -22,23 +23,8 @@ export class PersonDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<PersonDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public person: Person,
-    public planetApiService: StarwarsApiPlanetsService,
-    public movieApiService: StarwarsApiMoviesService,
-    public dialogService: DialogService) {
+  ) {
 
-    this.homeworldLoading = true;
-    planetApiService.loadPlanet(person.homeworld).subscribe(data => {
-      this.homeworld = new Planet(data);
-      this.homeworldLoading = false;
-    });
-
-    this.homeworldLoading = true;
-    for(let i in person.films) {
-      movieApiService.loadMovie(person.films[i]).subscribe(data => {
-        this.movies.push(new Movie(data));
-        this.homeworldLoading = false;
-      })
-    }
   }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {Planet} from "../../models/planet";
-import {StarwarsApiPlanetsService} from "../../services/starwars-api-planets.service";
+import {Observable} from 'rxjs';
+import {Planet} from '../../models/planet';
+import {StarwarsApiPlanetsService} from '../../services/starwars-api-planets.service';
 
 @Component({
   selector: 'app-planet',

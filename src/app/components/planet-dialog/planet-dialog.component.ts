@@ -1,11 +1,11 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {Planet} from "../../models/planet";
-import {Movie} from "../../models/movie";
-import {Person} from "../../models/person";
-import {StarwarsApiMoviesService} from "../../services/starwars-api-movies.service";
-import {StarwarsApiPeopleService} from "../../services/starwars-api-people.service";
-import {DialogService} from "../../services/dialog.service";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Planet} from '../../models/planet';
+import {Movie} from '../../models/movie';
+import {Person} from '../../models/person';
+import {StarwarsApiMoviesService} from '../../services/starwars-api-movies.service';
+import {StarwarsApiPeopleService} from '../../services/starwars-api-people.service';
+import {DialogService} from '../../services/dialog.service';
 
 @Component({
   selector: 'app-planet-dialog',
@@ -25,20 +25,20 @@ export class PlanetDialogComponent implements OnInit {
     public peopleApiService: StarwarsApiPeopleService,
     public dialogService: DialogService) {
 
-    for(let i in planet.films) {
+    for (const i in planet.films) {
       this.movieLoading = true;
       movieApiService.loadMovie(planet.films[i]).subscribe(data => {
         this.movies.push(new Movie(data));
         this.movieLoading = false;
-      })
+      });
     }
 
-    for(let i in planet.residents) {
+    for (const i in planet.residents) {
       this.residentLoading = true;
       peopleApiService.loadPerson(planet.residents[i]).subscribe(data => {
-        this.residents.push(new Person(data))
+        this.residents.push(new Person(data));
         this.residentLoading = false;
-      })
+      });
     }
   }
 

@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatMenuTrigger} from "@angular/material/menu";
+import {MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
   selector: 'app-navbar',

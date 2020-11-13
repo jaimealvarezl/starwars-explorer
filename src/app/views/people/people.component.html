@@ -1,7 +1,16 @@
 <h1>People</h1>
 
-<div *ngFor="let person of people | async">
+<mat-card class="card">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input [ngModel]="search$ | async" (ngModelChange)="onSearchChange($event)" matInput>
+  </mat-form-field>
+</mat-card>
+
+<br>
+
+<div *ngFor="let person of people">
   <app-person-card [person]="person"></app-person-card>
 </div>
 
-<mat-spinner class="loading" *ngIf="apiService.peopleLoaded === false"></mat-spinner>
+<mat-spinner class="loading" *ngIf="loading"></mat-spinner>

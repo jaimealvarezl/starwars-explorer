@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainComponent} from "./views/main/main.component";
-import {PlanetComponent} from "./views/planet/planet.component";
+import {MainComponent} from './views/main/main.component';
+import {PlanetComponent} from './views/planet/planet.component';
 
 
 const routes: Routes = [
@@ -11,16 +11,16 @@ const routes: Routes = [
   },
   {
     path: 'movies',
-    loadChildren: "../app/views/movie/movie.module#MovieModule"
+    loadChildren: '../app/views/movie/movie.module#MovieModule'
 
   },
   {
     path: 'people',
-    loadChildren: "../app/views/people/people.module#PeopleModule"
+    loadChildren: '../app/views/people/people.module#PeopleModule'
   },
   {
     path: 'planets',
-    loadChildren: "../app/views/planet/planet.module#PlanetModule"
+    loadChildren: '../app/views/planet/planet.module#PlanetModule'
   }
 ];
 

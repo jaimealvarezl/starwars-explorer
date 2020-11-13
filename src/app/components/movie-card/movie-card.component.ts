@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Movie} from "../../models/movie";
-import {DialogService} from "../../services/dialog.service";
+import {Movie} from '../../models/movie';
+import {DialogService} from '../../services/dialog.service';
 
 @Component({
   selector: 'app-movie-card',

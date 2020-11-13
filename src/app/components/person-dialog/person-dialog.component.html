@@ -25,7 +25,7 @@
 
         <label for="mass">Homeworld</label>
         <br>
-        <mat-card (click)="dialogService.openPlanetDialog(homeworld)">{{homeworld.name}}</mat-card>
+        <mat-card (click)="dialogService.openPlanetDialog(homeworld)">{{homeworld?.name}}</mat-card>
         <br>
         <mat-spinner *ngIf="homeworldLoading"></mat-spinner>
       </mat-dialog-content>

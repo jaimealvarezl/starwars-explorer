@@ -21,13 +21,13 @@ export class Planet {
     this.climate = data.climate;
     this.terrain = data.terrain;
     this.surface_water = data.surface_water;
-    if(data.residents.length > 0){
-      for(let i in data.residents){
+    if (data.residents.length > 0) {
+      for (const i in data.residents) {
         this.residents.push(data.residents[i]);
       }
     }
-    if(data.films.length > 0){
-      for(let i in data.films){
+    if (data.films.length > 0) {
+      for (const i in data.films) {
         this.films.push(data.films[i]);
       }
     }
